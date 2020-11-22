@@ -10,6 +10,9 @@ class HomeController < ApplicationController
     @values = "[ #{arr1.join(', ')} ]"
   end
   def index
+    if Curr.first.nil?
+      Curr.create(current: 0)
+    end
     @current = Curr.first.current
   end
   def new_forced
