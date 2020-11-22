@@ -8,9 +8,6 @@ class UpdateCurrencyJob < ApplicationJob
     end
     @page = Nokogiri::HTML(@doc)
     @inf =  @page.xpath('//div[@class = "currency-table__large-text"]')[0].text
-    if Curr.first.nil?
-      Curr.create(current: @inf.to_s)
-    end
     @curr = Curr.first
     @curr.current = @inf.to_s
     @curr.save
