@@ -1,0 +1,24 @@
+:verbose: false
+:concurrency: 10
+:timeout: 25
+
+# Sidekiq will run this file through ERB when reading it so you can
+# even put in dynamic logic, like a host-specific queue.
+# http://www.mikeperham.com/2013/11/13/advanced-sidekiq-host-specific-queues/
+:queues:
+  - critical
+  - default
+  - <%= `hostname`.strip %>
+  - low
+:schedule:
+  UpdateCurrencyJob:
+    dynamic: true
+    cron: '*/1 * * * *'
+    queue: scheduler
+    enabled: true
+
+# you can override concurrency based on environment
+production:
+  :concurrency: 25
+staging:
+  :concurrency: 15
