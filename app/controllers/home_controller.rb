@@ -20,10 +20,10 @@ class HomeController < ApplicationController
     val = params[:forced][:value]
     dt = DateTime.now
     if val.to_f == "0.0"
-      redirect_to home_admin_url, alert: 'You must provide a numeric value' and return
+      redirect_to admin_url, alert: 'You must provide a numeric value' and return
     end
     if base.empty?
-      redirect_to home_admin_url, alert: 'You must provide date to process the form' and return
+      redirect_to admin_url, alert: 'You must provide date to process the form' and return
     end
     if base.split('T').size < 2
       date = base.split('T')[0].split('-')
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
       TimerWorker.perform_at(dt)
       redirect_to root_url, alert: 'All fine'
     else
-      redirect_to home_admin_url, alert: 'Something went wrong' and return
+      redirect_to admin_url, alert: 'Something went wrong' and return
     end
   end
 end
