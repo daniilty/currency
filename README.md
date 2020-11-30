@@ -1,8 +1,8 @@
 # How to deploy this bad guy locally
 
-` $ redis-server `
-` $ bundle exec sidekiq -d -C config/sidekiq.yml `
-` $ rails s `
+``` $ redis-server ```
+``` $ bundle exec sidekiq -d -C config/sidekiq.yml ```
+``` $ rails s ```
 
 # Features
 
