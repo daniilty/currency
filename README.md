@@ -1,24 +1,18 @@
-# README
+# How to deploy this bad guy locally
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+` $ redis-server `
+` $ bundle exec sidekiq -d -C config/sidekiq.yml `
+` $ rails s `
 
-Things you may want to cover:
+# Features
 
-* Ruby version
+* PG database
+* WebSockets
+* jQuery 
+* Some neat graphs 
 
-* System dependencies
+# Screenshots
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![First](/screenshots/1.png?raw=true)
+![Second](/screenshots/2.png?raw=true)
+![Third](/screenshots/3.png?raw=true)
